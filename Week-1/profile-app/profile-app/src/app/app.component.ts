@@ -1,9 +1,9 @@
 /*
 ============================================
-; Title:  Pinson-Assignment 1.3
+; Title:  Pinson-Assignment 1.5
 ; Author: James Pinson
 ; Date: May 30th 2021
-; Description: Creating our first application using Angular.
+; Description: We create our first app using components with Angular.
 ;===========================================
 */
 
@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+//This exports our assignment variable string.
 export class AppComponent {
-  myWorld = "You are now in James Pinson's World!"
+  assignment: string = 'Assignment 1.5 - Components';
 }
