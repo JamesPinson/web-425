@@ -1,0 +1,29 @@
+ <!--
+============================================
+; Title: Pinson-Assignment 2.5
+; Author: James Pinson
+; Date: June 6th 2021
+; Description: Using Routing and Data Binding with Angular.
+;============================================
+-->
+
+<!--This creates the table that holds my composer list. -->
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-boredered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Full name</th>
+          <th scope="col">Genre</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let composer of composers">
+        <tr>
+          <!--This imports my composer array into this component. -->
+          <td scope="row"> {{composer.fullName }}</td>
+          <td>{{composer.genre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
