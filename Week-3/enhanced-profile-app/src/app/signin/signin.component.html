@@ -1,0 +1,26 @@
+
+<!--This sets up our sign in page.-->
+<div class="card signin-container">
+  <div class="card-body">
+    <h3 class="card-title">Sign In</h3>
+
+<!--This sets up the form for Username. -->
+    <form class="card-text">
+      <div class="form-group">
+        <label for="txtUserName">Username</label>
+        <input type="text" class="form-control" id="txtUserName" placeholder="Enter your username" />
+      </div>
+
+<!--This sets up the form for Password. -->
+      <div class="form-group">
+        <label for="txtPassword">Password</label>
+        <input type="password" class="form-control" id="txtPassword" placeholder="Enter your password" />
+
+<!--This sets up the button to submit. -->
+        <div class="form-group">
+          <button class="btn btn-primary float-right" (click)="signin()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
