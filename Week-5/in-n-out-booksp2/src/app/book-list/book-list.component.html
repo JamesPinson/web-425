@@ -1,0 +1,47 @@
+<div fxLayout="column wrap">
+
+  <!--Here we create the header for our table. -->
+  <h2 fxFlex class="green">Top 5 Favorite Books</h2>
+
+  <table fxFlex mat-table [dataSource]="books" class="mat-elevation-z8">
+
+    <!--Here we add in the headers for our columns. -->
+    <tr mat-header-row *matHeaderRowDef="header"></tr>
+    <tr mat-row *matRowDef="let row; columns: header"></tr>
+
+    <!--Here we create the column for ISBN and let it iterate over the array to display the ISBN.-->
+    <ng-container matColumnDef="isbn">
+      <th mat-header-cell *matHeaderCellDef>ISBN</th>
+      <td mat-cell *matCellDef= "let element">
+        <!--Here we add a click button so that it will show the book details in our developer console. -->
+        <a class="a-link blue" (click)="showBookDetails(element.isbn)">
+          {{ element.isbn }}
+        </a>
+      </td>
+    </ng-container>
+
+    <!--Here we create the column for Title and let it iterate over the array to display the Title.-->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element. title }}
+      </td>
+    </ng-container>
+
+    <!--Here we create the column for Number of Pages and let it iterate over the array to display the Number of Pages.-->
+    <ng-container matColumnDef="numOfPages">
+      <th mat-header-cell *matHeaderCellDef>Number of Pages</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.numOfPages }}
+      </td>
+    </ng-container>
+
+    <!--Here we create the column for Authors and let it iterate over the array to display the Authors.-->
+    <ng-container matColumnDef="authors">
+      <th mat-header-cell *matHeaderCellDef>Authors</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.authors.join(',') }}
+      </td>
+    </ng-container>
+  </table>
+</div>
