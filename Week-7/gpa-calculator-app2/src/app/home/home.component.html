@@ -1,0 +1,62 @@
+<!--Here we create the div and card for our grade form. -->
+<div fxLayout="row wrap" fxLayoutGap="20px">
+  <div class="grade-form" fxFlex>
+    <mat-card class="mat-elevation-z8">
+
+      <!-- This is our grade form Title. -->
+      <mat-card-title>Grade Entry</mat-card-title>
+
+      <!--This if our mat card content which consist of a course and grade form. -->
+      <mat-card-content>
+        <form fxLayout="column" fxLayoutGap="16px">
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Course</mat-label>
+            <input type="text" name="txtCourse" id="txtCourse" matInput [(ngModel)]="transcriptEntry.course" />
+          </mat-form-field>
+
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Grade</mat-label>
+            <mat-select [(ngModel)]="transcriptEntry.grade" name="selectGrade">
+              <mat-option *ngFor="let grade of selectableGrades" [value]="grade">
+                {{ grade }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--Here we have the button to save our grade entry. -->
+          <button mat-raised button color="primary" (click)="saveEntry()">Save</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Here we create the div and card for our Transcript section. -->
+  <div class="grade-summary" fxFlex>
+    <!--This is the button to clear our transcript. -->
+    <button mat-button color="primary" (click)="clearEntries()">Clear Transcript</button>
+    <mat-card class="mat-elevation-z8">
+      <!--This is our section title. -->
+      <mat-card-title>Transcript</mat-card-title>
+      <!--This is were our saved grade entries appear. -->
+      <mat-card-content>
+        <app-grade-summary *ngFor="let entry of transcriptEntries" [course]="entry.course" [grade]="entry.grade"></app-grade-summary>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<br /><br />
+
+<!--Here we create the div for our gpa. -->
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxFlex class="gpa">
+    <!--This is the button to calculate our gpa. -->
+    <button mat-button color="primary" (click)="calculateResults()">Calculate GPA</button>
+
+    <!-- This is the card that gives us our GPA total. -->
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title style="text-align: center;">
+      GPA: <app-gpa [gpaTotal]="gpaTotal"></app-gpa>
+    </mat-card-title>
+    </mat-card>
+  </div>
+</div>
